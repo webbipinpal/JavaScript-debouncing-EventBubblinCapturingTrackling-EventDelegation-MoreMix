@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fetch Data</title>
+<script>
+
+fetch('https://api.covid19api.com/summary')
+.then((data) => {
+    return data.json();
+}).then((dataDetails) =>{
+    console.log(dataDetails.Countries[77]);
+    document.getElementById('inrData').innerHTML = 'NewConfirmed Case =' + dataDetails.Countries[77].NewConfirmed;
+}).catch((err)=>{
+    console.log(`Please check this error ${err}`);
+});
+
+</script>
+</head>
+<body>
+
+<h1 id="inrData">This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
